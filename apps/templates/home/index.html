@@ -5,8 +5,74 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-        
-    <h1>{{ message }}</h1>
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            
+                            
+    <!-- Caixa de Temporada Atual -->
+    <div class="col-md-6 col-xl-4">
+        <div class="card dail   y-sales">
+            <div class="card-block">
+                <h6 class="mb-4">Temporada Atual</h6>
+                <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""></i>{{ temporada_atual }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Caixa de Rodada Atual -->
+     <div class="col-md-6 col-xl-4">
+        <div class="card Monthly-sales">
+            <div class="card-block">
+                <h6 class="mb-4">Rodada Atual</h6>
+                <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""></i>{{ rodada_atual }}</h3>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="m-b-0">{{ percentual }}%</p>
+                    </div>
+                </div>
+                <div class="progress m-t-30" style="height: 7px;">
+                    <div class="progress-bar progress-c-theme2" role="progressbar" style="width: {{ percentual }}%;" aria-valuenow="{{ percentual }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caixa de Última Atualização -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card yearly-sales">
+            <div class="card-block">
+                <h6 class="mb-4">Última Atualização</h6>
+                <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""></i>{{ ultima_atualizacao }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráfico de Temporadas -->
+    <div class="col-md-12">
+        <h2>Gráfico de Temporadas</h2>
+        <img src="data:image/png;base64,{{ image_data_temporadas }}" alt="Gráfico de Temporadas">
+    </div>
 
 {% endblock content %}
 

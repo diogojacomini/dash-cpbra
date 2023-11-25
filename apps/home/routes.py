@@ -7,13 +7,26 @@ from apps.home import blueprint
 from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
-
+from utils.dash import get_data, plot_temporadas, fig_to_base64
 
 @blueprint.route('/index')
 @login_required
 def index():
+    df_check = get_data().get('df_check')
+    fig_temporadas=plot_temporadas(df_check, x='temporada', y='rodada', cutoff=38)
+    image_data_temporadas = fig_to_base64(fig_temporadas)
+    
+    temporada_atual='2023'
+    rodada_atual='28'
+    percentual='75'
+    ultima_atualizacao='25/11/2023'
 
-    return render_template('home/index.html', segment='index', message='Bem-vindo ao meu aplicativo Flask!')
+    return render_template('home/index.html', segment='index', 
+                                            image_data_temporadas=image_data_temporadas,
+                                            temporada_atual=temporada_atual,
+                                            rodada_atual=rodada_atual,
+                                            percentual=percentual,
+                                            ultima_atualizacao=ultima_atualizacao)
 
 
 @blueprint.route('/<template>')

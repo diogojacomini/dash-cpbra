@@ -1,8 +1,4 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 import os
 from   flask_migrate import Migrate
 from   flask_minify  import Minify
@@ -37,7 +33,7 @@ if DEBUG:
     app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
     app.logger.info('ASSETS_ROOT      = ' + app_config.ASSETS_ROOT )
 
-# if __name__ == "__main__":
-#     app.run()
-
 application = app
+
+if __name__ == "__main__":
+    app.run()

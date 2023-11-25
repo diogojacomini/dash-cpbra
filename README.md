@@ -1,10 +1,6 @@
 # dash-cpbra
+set FLASK_APP=app.py
+set FLASK_ENV=development
 
-- Project
-    - layouts
-        - base.html
-    - templates
-        - index.html
-    app.py
-    README.md
-    requiriments.txt
+$env:FLASK_APP = ".\app.py"
+$env:FLASK_ENV = "development"
