@@ -19,7 +19,7 @@ def index():
     temporada_atual='2023'
     rodada_atual='28'
     percentual='75'
-    ultima_atualizacao='25/11/2023'
+    ultima_atualizacao='24/11/2023'
 
     return render_template('home/index.html', segment='index', 
                                             image_data_temporadas=image_data_temporadas,
