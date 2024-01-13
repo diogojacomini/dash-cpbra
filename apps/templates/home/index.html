@@ -68,11 +68,59 @@
         </div>
     </div>
 
-    <!-- Gráfico de Temporadas -->
-    <div class="col-md-12">
-        <h2>Gráfico de Temporadas</h2>
-        <img src="data:image/png;base64,{{ image_data_temporadas }}" alt="Gráfico de Temporadas">
+    <div class="col-md-12 col-xl-17">
+        <div class="card yearly-sales">
+            <div class="card-block">
+                <h5 class="mb-4">Última Atualização</h5>
+                <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""><img src="data:image/png;base64,{{ image_data_temporadas }}" alt="Gráfico de Temporadas"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="col-md-12 col-xl-17">
+        <div class="card yearly-sales">
+            <div class="card-block">
+                <h5 class="mb-4">Check 2</h5>
+                <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""><img src="data:image/png;base64,{{ image_data_times }}" alt="Gráfico de Temporadas"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <!-- Caixa de Temporada Atual -->
+  <div class="col-md-12 col-xl-5">
+    <div class="card dail   y-sales">
+        <div class="card-block">
+            <h6 class="mb-4">asad22s</h6>
+            <div class="row d-flex align-items-center">
+                <div class="col-9">
+                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""></i>{{ temporada_atual }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Caixa de Última Atualização -->
+<div class="col-md-12 col-xl-5">
+    <div class="card yearly-sales">
+        <div class="card-block">
+            <h6 class="mb-4">nbtv4r3ce2w</h6>
+            <div class="row d-flex align-items-center">
+                <div class="col-9">
+                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class=""></i>{{ ultima_atualizacao }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock content %}
 

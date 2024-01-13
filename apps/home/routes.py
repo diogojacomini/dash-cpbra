@@ -16,6 +16,9 @@ def index():
     fig_temporadas=plot_temporadas(df_check, x='temporada', y='rodada', cutoff=38)
     image_data_temporadas = fig_to_base64(fig_temporadas)
     
+    image_data_times = fig_to_base64(plot_temporadas(get_data().get('df_check2'), 
+                                                     x='temporada', y='time'))
+    
     temporada_atual='2023'
     rodada_atual='28'
     percentual='75'
@@ -23,6 +26,7 @@ def index():
 
     return render_template('home/index.html', segment='index', 
                                             image_data_temporadas=image_data_temporadas,
+                                            image_data_times=image_data_times,
                                             temporada_atual=temporada_atual,
                                             rodada_atual=rodada_atual,
                                             percentual=percentual,

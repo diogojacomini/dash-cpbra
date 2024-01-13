@@ -3,7 +3,9 @@ import pandas as pd
 from datetime import datetime
 import io
 import base64
+from utils.connect_az import AzureStore
 
+az = AzureStore()
 
 def fig_to_base64(fig):
     buf = io.BytesIO()
@@ -12,20 +14,17 @@ def fig_to_base64(fig):
     return base64.b64encode(buf.read()).decode('utf-8')
 
 def get_data():
-    dados_teste = {
-        'temporada': [2020, 2021, 2022],
-        'rodada': [35, 40, 37],
-    }
+    datasets = {'df_check': az.read_lake('campeonato-brasileiro', 'analytics/tb_sys_validacao_rodada.csv'),
+                'df_check2': az.read_lake('campeonato-brasileiro', 'analytics/tb_sys_validacao_time.csv'),
+                'counts': az.read_lake('campeonato-brasileiro', 'analytics/tb_sys_counts.csv'),
+                }
 
-    # Criar DataFrame pandas com os dados de teste
-    df_teste = pd.DataFrame(dados_teste)
-
-    return {'df_check': df_teste}
+    return datasets
 
 
 def plot_temporadas(dataset, x, y, cutoff=None):
     # Criar figura e eixos
-    fig, ax = plt.subplots(figsize=(10, 4))
+    fig, ax = plt.subplots(figsize=(16, 4))
 
     # Criar gráfico de barras
     ax.bar(dataset[x], dataset[y], color='skyblue', align='center')
@@ -39,7 +38,7 @@ def plot_temporadas(dataset, x, y, cutoff=None):
             if (dataset[x].iloc[i] == datetime.now().year):
                 ax.text(dataset[x].iloc[i], valor + 0.2, str(valor), ha='center', va='bottom')
 
-    ax.set_title(f'Range de {x.title()}')
+    #ax.set_title(f'Range de {x.title()}')
     ax.set_xlabel(x.title())
     ax.set_ylabel(y.title())
     ax.set_xticks(dataset[x])
